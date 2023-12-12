@@ -1,6 +1,12 @@
 # 2023-sapient-asde-ggn
 
 
+# Introduction 
+
+# Day1 
+	
+	OOAD	Introduction to OOAD & UML Understanding the need of documents	
+	
 
 
 ### Write user stories for week 1 
@@ -78,6 +84,12 @@ Customer -> Register -> Success
 - plantUML 
 
 
+# Day 2 
 
 
+- Maven - Building Simple Java Project with Maven(Dependencies, Build, Plugins) Overview of Gradle
 
+
+- Recap of Git working with BitBucket
+
+- Introduction to DevOps,Working with Jenkins - building application with Jenkins, Understanding plugins, creating pipeline with groovy scriptRecap of Git working with BitBucket, Intro to Ansible and Terraform
