@@ -120,6 +120,31 @@ Customer -> Register -> Success
 
 
 
+	- jenkins pipeline steps 
+
+	```
+		pipeline {
+			agent any 
+			stages {
+				stage('Build') { 
+					steps {
+						// 
+					}
+				}
+				stage('Test') { 
+					steps {
+						// 
+					}
+				}
+				stage('Deploy') { 
+					steps {
+						// 
+					}
+				}
+			}
+		}
+	```
+
 - Recap of Git working with BitBucket
 
 
