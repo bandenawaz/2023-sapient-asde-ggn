@@ -86,10 +86,30 @@ Customer -> Register -> Success
 
 # Day 2 
 
-
 - Maven - Building Simple Java Project with Maven(Dependencies, Build, Plugins) Overview of Gradle
+	- loggers 
+		- java.util 
+		- slf4j 
+			```
+				<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-simple</artifactId>
+					<version>2.0.7</version>
+					<scope>test</scope>
+				</dependency>
 
+			```
+		- maven provides a way to scafold the project 
+			- it could be simple project - quickstart 
+			- hibernate project 
+			- spring project 
+			- ... 
+			- over 2300 projects in there repositories 
 
+		- https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+
+		
 - Recap of Git working with BitBucket
 
 - Introduction to DevOps,Working with Jenkins - building application with Jenkins, Understanding plugins, creating pipeline with groovy scriptRecap of Git working with BitBucket, Intro to Ansible and Terraform
