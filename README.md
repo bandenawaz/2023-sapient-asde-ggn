@@ -109,7 +109,19 @@ Customer -> Register -> Success
 
 		- https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 
-		
+		- as of today we have 3339 arch types 
+
+- Introduction to DevOps,Working with Jenkins - building application with Jenkins, Understanding plugins, creating pipeline with groovy scriptRecap of Git working with BitBucket, 
+
+	1. Java Program Written 
+		1.1 can be regular java project 
+		1.2 it could be maven project - mvn clean compile install test 
+		1.3 we shall have 1 github repo with has maven project then build a pipeline project 
+
+
+
 - Recap of Git working with BitBucket
 
-- Introduction to DevOps,Working with Jenkins - building application with Jenkins, Understanding plugins, creating pipeline with groovy scriptRecap of Git working with BitBucket, Intro to Ansible and Terraform
+
+
+- Intro to Ansible and Terraform
