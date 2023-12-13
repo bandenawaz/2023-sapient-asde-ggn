@@ -128,25 +128,235 @@ Customer -> Register -> Success
 			stages {
 				stage('Build') { 
 					steps {
-						// 
+						echo "Build Step"  
 					}
 				}
 				stage('Test') { 
 					steps {
-						// 
+						echo "Test  Step" 
 					}
 				}
 				stage('Deploy') { 
 					steps {
-						// 
+						echo "Deploy Step" 
 					}
 				}
 			}
 		}
 	```
 
+```
+pipeline {
+    agent any
+
+    tools {
+        maven "m3"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}
+
+```
+
+- with parameters 
+
+```
+parameters {
+        string(name: 'branch', defaultValue: 'master', description: 'please enter branch to execute')
+        choice(name: 'test', choices: ['yes', 'no'], description: 'do you want to test')
+    }
+```
+
+# day 3 
+
 - Recap of Git working with BitBucket
-
-
+	- Mono repo Concept - there shall be only 1 branch and all developers shall create the folders 
+	- branching stratergy - create production, pre-production,dev branch from there created your 	
+			feature branches from JIRA + do PR 
 
 - Intro to Ansible and Terraform
+	- IAAC - Infrastructure As A Code 
+		- Ansilbe - Playbooks 
+
+- MongoDB	
+	MongoDB 
+	NoSQL DB
+	CRUD
+	Understnaing & Creating  Indexes
+	CAP theorem
+
+
+- working 	
+
+- mongod --dbpath . --port 27017 
+
+- mongo 
+
+- show dbs; - show all dbs 
+
+- use sapient-db; - create and switch db 
+
+- db; - to know which db you are connected 
+
+- to create a record 
+
+```
+
+
+		{
+			empid:101, 
+			empName: "Harish", 
+			empSal:12345
+		}
+
+	db.emps.insert({empid:101, empName: "Harish", empSal:12345}); 
+	db.emps.insert({empid:102, empName: "Aditya", empSal:12345, city:"Delhi"}); 
+	db.emps.insert({empid:103, empName: "Prince", empSal:2233, country:"India"}); 
+	db.emps.insert({empid:104, empName: "Sahil", empSal:3322}); 
+	db.emps.insert({empid:105, empName: "Soumya", empSal:4422, technology:"Java"}); 
+	
+	
+```
+
+- show collections; 
+
+- get me salary more than 3000 
+
+```
+	db.emps.find({}); -> select * from emps; 
+	db.emps.find({empSal:{$gt: 3000}});
+	db.emps.find({empSal:{$lt: 3000}});
+```
+
+
+- db.emps.find({
+			empSal:{$gt: 3000}, 
+			city:{$eq:"Delhi"}
+		});
+
+
+db.emps.save 
+- working with save & insert (difference )
+- db.emps1.insert({empid:101, empName: "Harish", empSal:12345}); 
+- db.emps1.save({"_id" : ObjectId("65797d6ef1902dfbe4ac0849"), empid:102, empName: "Harish", empSal:12345, city:"Bengaluru"}); 
+
+
+- select * from emp where empcity='delhi' and salary > 3000; 
+- select empname, empsal, emptechnology from emp where empcity='delhi' and salary > 3000; 
+
+
+-- projection 
+
+- db.emps.find({}, {empid:1, _id:0, empName:1})
+
+
+
+- capped collection 
+- db.createCollection("capp-coll", {capped:true, size: 1000, max:5})
+
+
+
+- insert multiple records 
+
+- db.multipleRecordTest.insert([
+	{accid:101}, 
+	{accid:102}, 
+	{accid:103}, 
+])
+
+- second highest salary 
+
+- embedded document 
+
+```
+	db.embed.insert({
+		empId:101, 
+		empName:"Naveen", 
+		empSal: 1234, 
+		address: {
+			houseNo: 100, 
+			street: "Stevenscreek",
+			city: "Bengaluru",
+			state: "Karnataka"
+		}}); 
+
+
+		db.embed.insert({
+		empId:102, 
+		empName:"Kumar", 
+		empSal: 2233, 
+		address: {
+			houseNo: 123, 
+			street: "Stevenscreek",
+			city: "Bengaluru",
+			state: "Chennai"
+		}}); 
+```
+-- find inside embeded document 
+
+
+- db.embed.find({"address.city" :"Bengaluru"})
+
+
+
+- db.embed.find({"address.state" :"Karnataka"})
+
+
+
+- update -- you can set 
+- db.emps.update({}, {$set:{city:"NewYork"}}); 
+
+
+- you can unset 
+ db.emps.update({empid:104}, {$unset:{city:""}}); 
+
+- db.emps.update({}, {$set:{city:"NewYork"}}, {multi:true}); 
+
+
+
+
+- db.emps.update({empid:104}, {$set:{city:"NewJersey",  empSal:5000}}, {upsert:true}); 
+
+
+- db.emps.update({empid:110}, {$set:{city:"NewJersey",  empSal:5000}}, {upsert:true}); 
+
+
+- create index 
+
+> db.emps.find().explain("executionStats");
+> db.emps.find({empName:"Aditya"}).explain("executionStats");
+> db.emps.createIndex({empName:1})
+
+```
+	db.getCollectionNames().forEach(function(collection) {
+		indexes = db[collection].getIndexes();
+		print("Indexes for " + collection + ":");
+		printjson(indexes);
+	});
+```
+
+- db.emp.stats()
+
+- Db.emp.totalIndexSize()
