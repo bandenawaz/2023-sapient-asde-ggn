@@ -4,11 +4,11 @@ import com.sapient.beans.Login;
 import com.sapient.dao.contracts.ILoginDao;
 import com.sapient.exception.LoginFailedException;
 
-public class LoginDAOMongoDB implements ILoginDao{
+public class LoginDAOMySQL implements ILoginDao {
 
 	@Override
 	public boolean loginCheck(Login login) throws LoginFailedException {
-		// you are connecting to db (MongoDB) 
+		// TODO Auto-generated method stub
 		return false;
 	}
 
