@@ -360,3 +360,15 @@ db.emps.save
 - db.emp.stats()
 
 - Db.emp.totalIndexSize()
+
+
+
+# Day 4 
+
+1. Use as much of SCM 
+2. Create a base structure 
+3. Assign work to individuals 
+4. Application built should be easy to integrate 
+5. Working on individual branches 
+6. Testing the code written 
+7. 
