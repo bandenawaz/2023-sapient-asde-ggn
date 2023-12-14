@@ -416,3 +416,59 @@ Account [accountId=102, accountBalance=3000.0, accountHolderName=Kiran], hashcod
 Account [accountId=103, accountBalance=4000.0, accountHolderName=Arik], hashcode -710339085
 Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode -962661008
 
+----------------------
+
+
+```
+	interface Area {
+		int size(); 
+	}
+
+
+
+```
+
+
+
+Week 1 : To enable user login and perform transaction on platform 
+
+1. to setup jenkins pipeline for the application built 
+	AC: 
+	Given the application is running in the local system 
+	And the code is seeded on the SCM on the branch dev 
+	When the trigger is made with Jenkins (CI/CD) tool 
+	Then the build should take place 
+	And the build shall have different stages build, deploy 
+	And application should be able to invoke from local system 
+
+2. creating customer registration 
+	AC: 
+	Given the application working 
+	When the options show are 
+		1. Customer Regitration 
+		2. Customer Login 
+		3. Admin Login 
+		4. Exit 
+	And user selects option 1 
+	Then the new screen shall accept parameters first-name, lastname, age, userid(unique check), password, confirm password 
+	When all the details are validated 
+	Then the message is shown to end user "Customer Created successfully with ID :xxx "
+	Then navigated to home screen with option 
+		1. Customer Regitration 
+		2. Customer Login 
+		3. Admin Login 
+		4. Exit 
+
+
+3. creating customer login 
+4. Admin login 
+5. Profile change for the customer 
+
+Week 2 :
+
+
+
+1. User stories 
+2. create folder structure on for project (discuss with the team )
+3. all developer should have tools to develop + setup database in local system 
+4. make user stories work in the application 
