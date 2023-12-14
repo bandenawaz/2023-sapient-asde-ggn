@@ -372,3 +372,47 @@ db.emps.save
 5. Working on individual branches 
 6. Testing the code written 
 7. 
+
+
+
+- head first java 
+- complete reference 
+- OS by galvin 
+
+
+
+```
+	Vector<Object> v = new Vector<>(); 
+
+```
+
+
+
+
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode 1221555852
+Account [accountId=103, accountBalance=4000.0, accountHolderName=Arik], hashcode 1705929636
+Account [accountId=102, accountBalance=3000.0, accountHolderName=Kiran], hashcode 1297685781
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode 511833308
+
+
+---------------
+
+
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode 65
+Account [accountId=103, accountBalance=4000.0, accountHolderName=Arik], hashcode 65
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode 65
+Account [accountId=102, accountBalance=3000.0, accountHolderName=Kiran], hashcode 75
+
+
+---------------------------
+
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode 65
+Account [accountId=103, accountBalance=4000.0, accountHolderName=Arik], hashcode 65
+Account [accountId=102, accountBalance=3000.0, accountHolderName=Kiran], hashcode 75
+
+---------------------------
+
+Account [accountId=102, accountBalance=3000.0, accountHolderName=Kiran], hashcode 981748484
+Account [accountId=103, accountBalance=4000.0, accountHolderName=Arik], hashcode -710339085
+Account [accountId=101, accountBalance=2000.0, accountHolderName=Anupam], hashcode -962661008
+

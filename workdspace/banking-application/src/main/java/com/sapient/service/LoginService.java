@@ -1,15 +1,15 @@
 package com.sapient.service;
 
 import com.sapient.beans.Login;
-import com.sapient.dao.LoginDAO;
+import com.sapient.dao.LoginDAOMongoDB;
 import com.sapient.exception.LoginFailedException;
 import com.sapient.service.contracts.ILoginService;
 
 public class LoginService implements ILoginService {
 	
-	private LoginDAO loginDao;
+	private LoginDAOMongoDB loginDao;
 	
-	public LoginService(LoginDAO loginDao) {
+	public LoginService(LoginDAOMongoDB loginDao) {
 		this.loginDao = loginDao;
 	}
 	

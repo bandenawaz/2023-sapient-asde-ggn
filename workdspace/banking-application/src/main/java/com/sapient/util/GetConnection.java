@@ -9,6 +9,6 @@ public class GetConnection {
 		}else if(dbName.equals("mongodb")) {
 			// write MongoDB BL 
 		}
-		return  "Connecting to " + dbName; 
+		return  "Connectin =]g to " + dbName; 
 	}
 }
