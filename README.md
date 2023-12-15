@@ -464,11 +464,95 @@ Week 1 : To enable user login and perform transaction on platform
 4. Admin login 
 5. Profile change for the customer 
 
-Week 2 :
-
 
 
 1. User stories 
 2. create folder structure on for project (discuss with the team )
 3. all developer should have tools to develop + setup database in local system 
 4. make user stories work in the application 
+
+
+
+# Day 5 
+
+- understanding beans 
+
+```
+	-- bean class 
+	class Registration {
+		String userName;
+		Name name; 
+		String password;  enum GENDER; Date dob; 
+		Address address;
+	}
+
+
+	class RegistrationAdmin {
+		String userName;
+		String password; 
+		Name name; 
+		 enum GENDER; Date dob; 
+		Address address; 
+	}
+
+
+class Name {
+	private String firstName; 
+	private String lastName;
+
+
+	// setters 
+	public void setFirstName(String firstName) {
+		this.firstName = firstName; 
+	}
+	/ getters 
+
+
+}
+	class Address {
+String streetName; int houseNo; String city; String state
+	}
+
+
+	class SomeDao {
+
+		public boolean registerCustomer(Register register){
+
+		// your business logic 
+		}
+
+	}
+
+
+	// main 
+
+	PSVM {
+			SomeDao sd = new SomeDao(); 
+			
+			Address addr = new Address( "Street 14", 123, "bengaluru", "Karnataka"); 
+			Register r  = new Register("Naveen", "keepguessgin@123", "Naveen", "kumar", GENDER.MALE, new Date("10-1-2023"),addr); 
+
+			sd.registerCustomer(r)
+
+	} 
+```
+
+
+- a beans is a class which has private variables, public getters and setters 
+- WORM - WRITE ONCE READ MANY
+
+
+
+- mysql db works 
+
+- create database sapdb; 
+- use sapdb; 
+- show databases; 
+```
+	create table employee(empid int primary key, empname varchar(30), empsalary decimal (10,2), empemail varchar(50)); 
+
+
+
+```
+
+
