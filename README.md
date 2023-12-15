@@ -556,6 +556,8 @@ String streetName; int houseNo; String city; String state
 com.mysql.cj.jdbc.Driver.class
 
 
-
+- arrays will start indexing from 0 
+- retsult will set start indexing from -1 
+- positional parameters will start indexing from 1 
 
 
