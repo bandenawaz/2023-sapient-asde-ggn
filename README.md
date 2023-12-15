@@ -550,9 +550,12 @@ String streetName; int houseNo; String city; String state
 - show databases; 
 ```
 	create table employee(empid int primary key, empname varchar(30), empsalary decimal (10,2), empemail varchar(50)); 
-
-
-
 ```
+
+
+com.mysql.cj.jdbc.Driver.class
+
+
+
 
 
