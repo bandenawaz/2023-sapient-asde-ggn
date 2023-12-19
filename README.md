@@ -561,3 +561,192 @@ com.mysql.cj.jdbc.Driver.class
 - positional parameters will start indexing from 1 
 
 
+#Day 6
+
+#Java Annotations
+- @Deprecated
+- @Override
+- @SupressedWarnings
+- Custom Annotation
+
+#FunctionaInterface
+A functional interface is an interface that contains only one abstract method. They can have only one functionality to exhibit.A functional interface can have any number of default methods. Runnable, ActionListener, and Comparable are some of the examples of functional interfaces. 
+
+Functional Interface is additionally recognized as Single Abstract Method Interfaces.
+package org.example;
+
+@FunctionalInterface
+interface MyInterface{
+    public abstract void myMethod();
+//    public abstract void myMethod2();
+    //void myMethod2();
+}
+public class Main {
+    public static void main(String[] args) {
+
+        MyInterface myInterface = new MyInterface(){
+
+            @Override
+            public  void myMethod() {
+                System.out.println("I am from Functional Interface");
+            }
+        }   ;
+
+        //Lets call the method
+        myInterface.myMethod();
+    }
+
+#Lambda expressions
+A lambda expression is simply a function without any name. It can even be used as a parameter in a function. Lambda Expression facilitates functional programming and simplifies development a lot.
+
+synatx - (parameters) -> expression or (parameters) -> { statements; }
+
+@FunctionalInterface
+interface Addable{  
+    int add(int a,int b);  
+}  
+public class JLEExampleMultipleParameters {
+
+    public static void main(String[] args) {
+       // Multiple parameters in lambda expression  
+        Addable withLambda = (a,b)->(a+b);  
+        System.out.println(withLambda.add(10,20));  
+          
+        // Multiple parameters with data type in lambda expression  
+        Addable withLambdaD = (int a,int b) -> (a+b);  
+        System.out.println(withLambdaD.add(100,200));  
+    }
+ }
+
+ public class DifferentWaysListIterateProgram {
+
+    public static void main(String...args) {
+
+        List < String > courses = Arrays.asList("C", "C++", "Core Java", "J2EE", "Spring", "Hibernate", "Python");
+
+   
+        // JDK 8 streaming example lambda expression
+        courses.stream().forEach(course -> printCourse(course));
+
+        // JDK 8 streaming example method reference
+        courses.stream().forEach(DifferentWaysListIterateProgram::printCourse);
+
+        // JDK 8 for each with lambda
+        courses.forEach(course -> printCourse(course));
+
+        // JDK 8 for each
+        courses.forEach(DifferentWaysListIterateProgram::printCourse);
+    }
+
+    // common method to print course
+    private static void printCourse(String course) {
+        System.out.println("course name :: " + course);
+    }
+}
+
+#Stream API
+streams are wrappers around a data source, allowing us to operate with that data source and making bulk processing convenient and fast.
+
+A stream does not store data and, in that sense, is not a data structure. It also never modifies the underlying data source.
+
+package org.example.streamsdemo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StreamAppExample {
+
+    public static void main(String[] args) {
+
+        //lets write the code for finding certain strings without strem
+
+        List<String> names = new ArrayList<>();
+        names.add("Ayush");
+        names.add("Aditya");
+        names.add("Akshat");
+        names.add("Anupam");
+        names.add("Purvi");
+
+        //1:Without Stream API  (Sequential Execution)
+//        int count = 0;
+//        for (String s : names) {
+//
+//            if (s.length() >= 6) {
+//                count++;
+//
+//            }
+//        }
+
+        //2:With Stream API
+//        long count = names.stream().filter(str -> str.length() >= 6).count();
+//        System.out.println("Total number of names with more than 6 chars is " + count);
+
+        //Iterating and Displaying selected integers using Stream with limit(6)
+//        Stream.iterate(1, count -> count + 1)
+//                .filter(num -> num%5==0)
+//                .limit(8)
+//                .forEach(System.out::println);
+
+        //Lets concatenate two streams one being the stream of names and other being the stream of fruits
+        List<String> names2 = Arrays.asList("Shashank", "Suraj","Saloni");
+        List<String> fruits = Arrays.asList("Apples", "Banana","Orange");
+
+        Stream<String> resStream = Stream.concat(names2.stream(), fruits.stream());
+
+        resStream.forEach(str -> System.out.print(str+" "));
+        //resStream.forEach(System.out::println);
+        
+        
+    }
+}
+
+Java Optional is a way of replacing a nullable T reference with a non-null value. An Optional may either contain a non-null T reference (in which case we say the value is “present”), or it may contain nothing (in which case we say the value is “absent”).
+
+package org.example;
+
+import java.util.Optional;
+
+public class OptonalClassDemo {
+
+    public static void main(String[] args) {
+
+//        //lets raise an NPE
+//        String[] str = new String[10];
+//
+//        //Lets get the substring
+//        String str2 = str[9].substring(2,5);
+//
+//        //Lets display the substring
+//        System.out.println(str2);
+
+        //lets handle the above scenario using optional class
+        String[] str = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "jahdjaajahah"};
+        Optional<String> isNull = Optional.ofNullable(str[9]);
+
+        //lets check for the NPE
+        if(isNull.isPresent()) {
+            //Getting the substring
+            String str2 = str[9].substring(2,5);
+
+            //Lets display the substring
+            System.out.println(str2);
+        } else {
+            System.out.println("Cannot get the substring from an empty string");
+        }
+    }
+}
+
+#DateTime API
+Java 8 introduced new APIs for Date and Time to address the shortcomings of the older java.util.Date and java.util.Calendar.
+#Issues With the Existing Date/Time APIs
+- Thread safety
+- API design and ease of understanding
+- ZonedDate and Time
+
+
+
+
+ 
+
