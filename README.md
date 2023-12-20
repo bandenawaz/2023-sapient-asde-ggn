@@ -561,7 +561,7 @@ com.mysql.cj.jdbc.Driver.class
 - positional parameters will start indexing from 1 
 
 
-#Day 6
+# Day 6
 
 #Java Annotations
 - @Deprecated
@@ -780,6 +780,20 @@ public class ZonedDateTimeExample {
 
 *Documentation for DateimeApi
 https://docs.oracle.com/javase/8/docs/technotes/guides/datetime/index.html
+
+# Day 7
+** Java 11 Features **
+- Collection to Array
+- HttpClientApi
+- Var in Lambda expression
+- String APi methods
+
+** Java 17 Features **
+- Pattern Matchig
+- NIO and NIO2
+- Record
+- Sealed Class
+- RandomNumberGenrator Interface
 
 
 
