@@ -794,6 +794,29 @@ https://docs.oracle.com/javase/8/docs/technotes/guides/datetime/index.html
 - Record
 - Sealed Class
 - RandomNumberGenrator Interface
+- Records
+- Sealed Classses
+- Java NIO and NIO2
+
+# Day 8
+* Unit Testing*
+  - @Test
+  - @DisplayName
+  - @BeforeEach
+  - @BeforeAll
+  - @AfterEach
+  - @AfterAll
+
+* Mockito *
+- Mocking
+- Method Stubbing
+
+*Test Driven DevelopmMent*
+- Red Test
+- Green Test
+- Refractor
+- Using JUnit5 and Mockito
+
 
 
 
